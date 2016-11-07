@@ -6,19 +6,14 @@ var userInput = process.argv[2];
 var http = require('http');
 var https = require('https');
 
-
-function getAndPrintHTML () {
-
-var options = {
+var tempOption = {
   host: "",
-  path: ""
+  path: userInput
 };
-// Setting user input into the object options path value
-options.path = userInput;
 
-console.log(options);
+function getAndPrintHTML (options) {
 
-var protocol  = "";
+  var protocol  = "";
 
   if (options.path.startsWith("https:")) {
     protocol = https;
@@ -45,4 +40,4 @@ var protocol  = "";
   });
 }
 
-getAndPrintHTML();
+getAndPrintHTML(tempOption);
